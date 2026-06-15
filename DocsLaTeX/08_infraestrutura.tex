@@ -1,0 +1,39 @@
+\section{Introdução}
+Este documento descreve a infraestrutura necessária contemplando os requisitos de hardware, software e serviços exigidos para que o sistema Kanban seja posto em produção.
+
+\section{Hardware}
+% [Hardware necessario à implantação do sistema]
+\begin{itemize}
+    \item \textbf{Servidor de Aplicação:} 
+    \begin{itemize}
+        \item Processador: Mínimo 2 vCPUs (ex: AWS EC2 t3.micro ou equivalente).
+        \item Memória RAM: Mínimo 2 GB.
+        \item Armazenamento: 20 GB SSD.
+    \end{itemize}
+    \item \textbf{Servidor de Banco de Dados:} 
+    \begin{itemize}
+        \item (Se hospedado separadamente) Processador: 2 vCPUs.
+        \item Memória RAM: 4 GB.
+        \item Armazenamento: 50 GB.
+    \end{itemize}
+    \item \textbf{Cliente (Usuário Final):} Computador ou dispositivo móvel capaz de executar navegadores web modernos (Chrome, Firefox, Safari, Edge).
+\end{itemize}
+
+\section{Software}
+% [Software necessario à implantação do sistema]
+\begin{itemize}
+    \item \textbf{Sistema Operacional do Servidor:} Linux (ex: Ubuntu Server 22.04 LTS).
+    \item \textbf{Ambiente de Execução (Backend):} [Ex: Node.js, Python, Java, ou PHP - definir conforme a equipe].
+    \item \textbf{Servidor Web/Proxy Reverso:} Nginx ou Apache.
+    \item \textbf{Banco de Dados:} [Ex: PostgreSQL, MySQL].
+    \item \textbf{Software Cliente:} Navegador web moderno atualizado.
+\end{itemize}
+
+\section{Serviços}
+% [Serviços necessarios à implantação do sistema]
+\begin{itemize}
+    \item \textbf{Hospedagem em Nuvem (Cloud Hosting):} [Ex: Heroku, AWS, Azure, ou provedor VPS como DigitalOcean] para hospedar a aplicação e o banco de dados.
+    \item \textbf{Registro de Domínio:} Serviço de DNS para roteamento (ex: Cloudflare ou Route 53).
+    \item \textbf{Certificado SSL:} Let's Encrypt para prover segurança na comunicação via HTTPS.
+    \item \textbf{Sistema de Controle de Versão (CI/CD):} GitHub Actions ou GitLab CI para integração e implantação contínuas.
+\end{itemize}

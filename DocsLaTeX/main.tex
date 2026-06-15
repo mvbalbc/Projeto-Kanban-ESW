@@ -1,0 +1,59 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage{geometry}
+\geometry{a4paper, margin=2.5cm}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{titlesec}
+\usepackage{enumitem}
+
+\title{
+	\vspace{2cm}
+	\textbf{Projeto Kanban ESW}\\
+	\large Engenharia de Software\\
+	\vspace{1cm}
+	\textbf{Documentação do Projeto}
+}
+
+\author{
+	Marcus Vinicius Balbino Cavalcante - 160135974\\
+	Gustavo Macedo - Matrícula B \\
+}
+
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+\chapter{Gerenciamento de Projeto}
+\input{01_gerenciamento_projeto}
+
+\chapter{Visão e Escopo}
+\input{02_visao_e_escopo}
+
+\chapter{Requisitos Não Funcionais}
+\input{03_requisitos_nao_funcionais}
+
+\chapter{Histórias de Usuário}
+\input{04_historias_usuario}
+
+\chapter{Arquitetura de Software}
+\input{05_arquitetura}
+
+\chapter{Projeto de Interface com o Usuário}
+\input{06_interface_usuario}
+
+\chapter{Projeto Físico de Banco de Dados}
+\input{07_banco_de_dados}
+
+\chapter{Infraestrutura de Implantação}
+\input{08_infraestrutura}
+
+\end{document}
