@@ -1,0 +1,69 @@
+\section{Introdução}
+Este documento especifica os requisitos não funcionais e outros requisitos de suporte do sistema, não expressos como histórias de usuário ou casos de uso. Ele abrange requisitos funcionais de nível de sistema (como auditoria, relatórios), qualidades do sistema (usabilidade, desempenho), interfaces e restrições.
+
+\section{Requisitos Funcionais de Nível de Sistema}
+% [Declaração de requisitos funcionais que abrangem todo o sistema. Ex: auditoria, autenticação, impressão, relatórios.]
+\begin{itemize}
+    \item \textbf{RNF01 - Autenticação e Autorização:} [O sistema deve garantir acesso seguro por meio de login...]
+    \item \textbf{RNF02 - Relatórios e Métricas:} [O sistema deve prover funcionalidade para exportar relatórios das métricas de cycle time, lead time, throughput e WIP...]
+\end{itemize}
+
+\section{Qualidades do Sistema (Atributos de Qualidade)}
+% [Representa a classificação URPS no modelo FURPS+]
+\subsection{Usabilidade}
+% [Descreva requisitos para facilidade de uso, aprendizado, padrões, etc.]
+\begin{itemize}
+    \item \textbf{RNF03 - Facilidade de Uso:} [O usuário deve ser capaz de criar e mover cartões de forma intuitiva, preferencialmente via interface de arrastar e soltar (drag and drop).]
+\end{itemize}
+
+\subsection{Confiabilidade}
+% [Disponibilidade, tolerância a falhas, recuperabilidade]
+\begin{itemize}
+    \item \textbf{RNF04 - Disponibilidade:} [O sistema deve estar disponível 99\% do tempo útil comercial.]
+\end{itemize}
+
+\subsection{Desempenho}
+% [Tempo de resposta, taxa de transferência, capacidade]
+\begin{itemize}
+    \item \textbf{RNF05 - Tempo de Resposta:} [O carregamento do quadro Kanban e o recálculo do WIP devem ocorrer em menos de 2 segundos.]
+\end{itemize}
+
+\subsection{Suportabilidade (Manutenibilidade)}
+% [Adaptabilidade, configurabilidade, facilidade de instalação]
+\begin{itemize}
+    \item \textbf{RNF06 - Configurabilidade:} [O limite de WIP para a coluna "FAZENDO" deve ser facilmente configurável pelo administrador do quadro.]
+\end{itemize}
+
+\section{Interfaces do Sistema}
+\subsection{Interfaces com o Usuário}
+% [Descreva o estilo, layout, consistência e navegação da interface]
+\begin{itemize}
+    \item \textbf{Aspecto Visual (Look \& Feel):} [O sistema deve ter uma interface moderna, clean e responsiva.]
+    \item \textbf{Layout e Navegação:} [O quadro Kanban deve ocupar a maior parte da tela, com as colunas lado a lado.]
+\end{itemize}
+
+\subsection{Interfaces com Sistemas ou Dispositivos Externos}
+% [Software, Hardware ou Interfaces de Comunicação Externas]
+\begin{itemize}
+    \item \textbf{Integrações:} [Descrever se haverá integração com sistemas de e-mail para notificações, etc.]
+\end{itemize}
+
+\section{Regras de Negócio}
+% [Regras de negócio que o sistema deve garantir]
+\begin{itemize}
+    \item \textbf{RN01 - Limite WIP:} [Se o número de cartões na coluna FAZENDO for igual ao limite de WIP, o sistema deve impedir a movimentação de um novo cartão para essa coluna, ou emitir um alerta visual.]
+\end{itemize}
+
+\section{Restrições do Sistema}
+% [Linguagens, ferramentas, componentes de terceiros, restrições de arquitetura]
+\begin{itemize}
+    \item \textbf{Ferramentas e Tecnologias:} [O sistema será desenvolvido em linguagem X, utilizando o framework Y e o banco de dados Z.]
+\end{itemize}
+
+\section{Conformidade do Sistema}
+% [Licenciamento, leis, direitos autorais, padrões aplicáveis (conforme especificado na avaliação)]
+\begin{itemize}
+    \item \textbf{Padrões e Métricas:} [O cálculo de Cycle Time, Lead Time e Throughput deve estar em conformidade com as definições padrão da metodologia Kanban.]
+    \item \textbf{Privacidade e Leis:} [O armazenamento dos dados dos usuários deve observar as normas da LGPD (Lei Geral de Proteção de Dados).]
+    \item \textbf{Documentação:} [O código deve ser documentado e disponibilizado em repositório sob controle de versão.]
+\end{itemize}

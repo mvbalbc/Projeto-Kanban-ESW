@@ -1,0 +1,60 @@
+\section{Introdução e Propósito}
+Este documento descreve a filosofia, decisões, restrições, justificativas e elementos significativos da arquitetura que moldam o design e a implementação do sistema Kanban.
+
+\section{Metas Arquiteturais e Filosofia}
+% [Descreva a filosofia da arquitetura. Identifique questões críticas.]
+\begin{itemize}
+    \item \textbf{Objetivos da Arquitetura:} [Ex: Alta disponibilidade, facilidade de manutenção, separação clara entre frontend e backend.]
+\end{itemize}
+
+\section{Suposições e Dependências}
+% [Liste as suposições e dependências consideradas na definição da arquitetura.]
+\begin{itemize}
+    \item \textbf{Dependências:} [Ex: Disponibilidade de banco de dados relacional, conexão com a internet constante no lado do cliente.]
+\end{itemize}
+
+\section{Requisitos Significativos para a Arquitetura}
+% [Faça referência aos requisitos que devem ser implementados para realizar a arquitetura (ex: requisitos não funcionais de desempenho).]
+Os requisitos que impactam diretamente a arquitetura estão descritos no documento de Requisitos Não Funcionais (Capítulo 3), especialmente os requisitos RNF04 (Disponibilidade) e RNF05 (Tempo de Resposta).
+
+\section{Decisões, Restrições e Justificativas}
+% [Decisões feitas sobre a abordagem arquitetural e restrições impostas aos desenvolvedores.]
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|p{5cm}|p{9cm}|}
+        \hline
+        \textbf{Decisão/Restrição} & \textbf{Justificativa} \\ \hline
+        [Ex: Uso de Arquitetura de Microserviços ou Monolítica] & [Justificar a escolha baseada na escala do projeto e familiaridade da equipe.] \\ \hline
+        [Ex: Uso de Framework X no Frontend] & [Justificar a agilidade no desenvolvimento e a comunidade ativa.] \\ \hline
+    \end{tabular}
+    \caption{Decisões Arquiteturais}
+\end{table}
+
+\section{Mecanismos e Abstrações Arquiteturais}
+% [Liste os mecanismos e principais abstrações do sistema.]
+\begin{itemize}
+    \item \textbf{Mecanismo de Persistência:} [Como os dados serão persistidos. Ex: ORM via Entity Framework/Hibernate.]
+    \item \textbf{Abstrações Chave:} [Quadro, Coluna, Raia, Cartão, Usuário.]
+\end{itemize}
+
+\section{Camadas ou Framework Arquitetural}
+% [Descreva o padrão arquitetural que será utilizado, informando elementos e relacionamentos.]
+O sistema adota o padrão [Ex: MVC (Model-View-Controller) / Client-Server]. 
+\begin{itemize}
+    \item \textbf{Elementos:} [Descreva os principais componentes e como eles se relacionam.]
+    \item \textbf{Impacto de Ferramentas (Frameworks e Bibliotecas):} [Descreva como as bibliotecas escolhidas impactam a arquitetura. Por exemplo, o uso de um template de UI específico afeta a estrutura do frontend, limitando a customização, mas acelerando a entrega.]
+\end{itemize}
+
+\section{Visões da Arquitetura}
+% [Descreva as visões utilizadas para documentar a arquitetura.]
+\subsection{Visão Lógica}
+% [Descreve a estrutura (pacotes, classes) das porções significativas do sistema.]
+(Insira aqui diagramas de classes ou de componentes principais e explique o relacionamento entre eles).
+
+\subsection{Visão Operacional (Implantação)}
+% [Descreve os nós físicos e processos.]
+(Ver Capítulo 8: Infraestrutura de Implantação).
+
+\subsection{Visão de Casos de Uso (Histórias)}
+% [Casos de uso com requisitos arquiteturais significativos.]
+(Ver Capítulo 4: Histórias de Usuário).

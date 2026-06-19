@@ -1,0 +1,42 @@
+\section{Introdução}
+Este documento apresenta as especificações dos requisitos funcionais do sistema por meio de histórias de usuário. Cada história de usuário é escrita sob a perspectiva do usuário final, em linguagem informal, e segue estritamente o formato: \textbf{``Como [papel] ... Eu quero [ação] ... Para [benefício/valor]''}.
+
+\section{Lista de Histórias de Usuário}
+
+\subsection{Gerenciamento de Quadro e Raias}
+\begin{itemize}
+    \item \textbf{HU01 - Criação de Quadro:} Como usuário, eu quero criar um novo quadro Kanban, para organizar um novo projeto da minha equipe.
+    \item \textbf{HU02 - Visualização de Quadro:} Como usuário, eu quero ler/visualizar o quadro Kanban, para acompanhar o status atual das atividades.
+    \item \textbf{HU03 - Atualização de Quadro:} Como usuário, eu quero atualizar o nome e configurações do quadro, para mantê-lo alinhado com o contexto do projeto.
+    \item \textbf{HU04 - Exclusão de Quadro:} Como usuário, eu quero excluir um quadro Kanban, para remover projetos finalizados ou cancelados.
+    
+    \item \textbf{HU05 - Criação de Raia (Swimlane):} Como usuário, eu quero criar uma raia (swimlane) no quadro, para separar atividades por categorias, prioridades ou times.
+    \item \textbf{HU06 - Visualização de Raia:} Como usuário, eu quero visualizar as raias no quadro, para ver as atividades agrupadas de forma clara.
+    \item \textbf{HU07 - Atualização de Raia:} Como usuário, eu quero atualizar as propriedades de uma raia, para corrigir ou alterar sua classificação.
+    \item \textbf{HU08 - Exclusão de Raia:} Como usuário, eu quero excluir uma raia, para remover divisões que não são mais necessárias.
+\end{itemize}
+
+\subsection{Gerenciamento de Cartões e Fluxo}
+\begin{itemize}
+    \item \textbf{HU09 - Criação de Cartão:} Como usuário, eu quero criar um cartão de atividades (contendo ID, nome, responsável, data limite, prioridade e descrição), para documentar uma nova tarefa.
+    \item \textbf{HU10 - Leitura de Cartão:} Como usuário, eu quero ler os detalhes de um cartão, para entender o que deve ser feito na tarefa.
+    \item \textbf{HU11 - Atualização de Cartão:} Como usuário, eu quero atualizar as informações de um cartão, para refletir mudanças ou corrigir dados.
+    \item \textbf{HU12 - Exclusão de Cartão:} Como usuário, eu quero excluir um cartão, para remover tarefas duplicadas ou descartadas.
+    \item \textbf{HU13 - Movimentação entre Colunas:} Como usuário, eu quero mover um cartão de atividades entre as colunas do quadro (ex: A FAZER para FAZENDO), para indicar o progresso do trabalho.
+    \item \textbf{HU14 - Movimentação entre Raias:} Como usuário, eu quero mover um cartão de atividades entre as raias do quadro, para reclassificar a atividade.
+\end{itemize}
+
+\subsection{Limites e Métricas}
+\begin{itemize}
+    \item \textbf{HU15 - Configuração de Limite WIP:} Como gestor/administrador do quadro, eu quero estabelecer o número máximo de cartões por coluna (work-in-progress limit), para evitar sobrecarga da equipe.
+    \item \textbf{HU16 - Cálculo de Métricas (Cycle Time):} Como gestor, eu quero que o sistema calcule a métrica Cycle Time, para saber quanto tempo em média a equipe leva para concluir uma tarefa após iniciada.
+    \item \textbf{HU17 - Cálculo de Métricas (Lead Time):} Como gestor, eu quero que o sistema calcule a métrica Lead Time, para saber o tempo total desde a criação da demanda até a entrega.
+    \item \textbf{HU18 - Cálculo de Métricas (Throughput):} Como gestor, eu quero que o sistema calcule o Throughput (taxa de entrega), para saber quantos itens estão sendo entregues em um determinado período.
+    \item \textbf{HU19 - Cálculo de Métricas (WIP Atual):} Como gestor, eu quero que o sistema calcule/mostre o WIP atual (Work In Progress), para saber quantos itens estão sendo trabalhados ativamente no momento.
+\end{itemize}
+
+\subsection{Outros Serviços (A adicionar)}
+% [Aos serviços anteriormente relacionados, podem ser acrescentados outros serviços que sejam considerados necessários ao atendimento das necessidades das partes interessadas]
+\begin{itemize}
+    \item \textbf{HU20 - [Outra funcionalidade]:} Como [papel], eu quero [ação], para [valor].
+\end{itemize}

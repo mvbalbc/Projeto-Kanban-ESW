@@ -1,0 +1,102 @@
+\section{Introdução}
+% [Descreva brevemente o conteúdo do plano de projeto.]
+Este documento guia o gerenciamento e o planejamento do desenvolvimento do protótipo de software do Projeto Kanban. Ele define a organização do projeto, as práticas de gerenciamento adotadas (baseadas no método Kanban), o quadro e os cartões utilizados, além dos marcos do projeto.
+
+\section{Organização do Projeto}
+% [Apresente a equipe do projeto, os membros e os papéis que desempenham. Se aplicável, apresente as áreas de trabalho. Apresente os canais de comunicação.]
+A equipe de desenvolvimento é composta pelos seguintes membros e papéis:
+\begin{itemize}
+    \item \textbf{Marcus Vinicius Balbino Cavalcante}: Desenvolvedor - E mais alguns papéis de acordo com os entregáveis feitos.
+    \item \textbf{Gustavo Macedo}: Desenvolvedor - E mais alguns papéis de acordo com os entregáveis feitos.
+\end{itemize}
+
+\section{Práticas de Projeto e Gerenciamento (Método Kanban)}
+% [Descreva quais práticas técnicas e de gerenciamento serão usadas, como desenvolvimento iterativo, Kanban, testes independentes. Especifique como o progresso será acompanhado.]
+O gerenciamento do projeto adota o \textbf{Método Kanban}. O progresso 
+será acompanhado visualmente por meio de um quadro Kanban, permitindo 
+o fluxo contínuo de entrega de valor e limitação do trabalho 
+em andamento (WIP).
+
+\subsection{Quadro Kanban}
+O quadro Kanban criado para o projeto inicialmente era composto pelas colunas:
+"A FAZER", "FAZENDO" e "FEITO". No entanto, notou-se a necessidade da adição de 
+subdivisões nas colunas para melhor organização 
+das atividades. Foi visto ao longo do desenvolvimento que era preciso ter uma
+coluna "buffer" entre a coluna "FAZENDO" e "FEITO" para armazenar as atividades 
+que foram concluídas, mas que ainda não foram validadas, e uma coluna "DO PROJETO" para 
+armazenar informações sobre o projeto. Assim, criamos a coluna 
+"REVISÃO", e a coluna "DO PROJETO", respectivamente. Além disso, usaremos 
+raias para separar as atividades de acordo com o tipo de entregável. Assim, 
+teremos uma raia para os documentos e outra para o código fonte.
+
+\subsubsection{Colunas do Quadro Kanban}
+\begin{itemize}
+    \item \textbf{DO PROJETO}: Propósito - Armazena informações sobre o projeto.
+    \item \textbf{A FAZER}: Propósito - Armazena as atividades (cartões) que foram mapeadas e aguardam disponibilidade da equipe para serem iniciadas.
+    \item \textbf{FAZENDO}: Propósito - Contém os cartões em que a equipe está trabalhando ativamente no momento. Esta coluna possui um limite de Work-in-Progress (WIP) para evitar gargalos.
+    \item \textbf{REVISÃO}: Propósito - Armazena as atividades (cartões) que foram concluídas, mas que ainda não foram validadas.
+    \item \textbf{FEITO}: Propósito - Recebe os cartões cujas atividades foram totalmente concluídas e validadas, prontas para entrega ou já entregues.
+\end{itemize}
+
+\subsubsection{Raias do Quadro Kanban}
+
+\begin{itemize}
+    \item \textbf{Documentos}: Propósito - Organiza e gerencia as atividades 
+    relacionadas à elaboração e revisão dos documentos do projeto. 
+    Facilita o acompanhamento do progresso de entrega dos artefatos 
+    escritos.
+    \item \textbf{Código Fonte}: Propósito - Gerencia as atividades de 
+    implementação e desenvolvimento do protótipo. A raia recebe os cartões 
+    de desenvolvimento, facilitando o acompanhamento do progresso 
+    técnico e a identificação de gargalos na codificação.
+\end{itemize}
+
+
+\subsection{Cartões Kanban}
+Os cartões utilizados para gerenciar as tarefas contêm, no mínimo, 
+as seguintes informações e como exemplo, temos o cartão de ID 001:
+\begin{itemize}
+    \item \textbf{Identificador}: 001
+    \item \textbf{Nome}: Criar artefato 01 - Descrição do processo de gerenciamento (Kanban).
+    \item \textbf{Responsável}: Marcus Vinicius Balbino Cavalcante.
+    \item \textbf{Data Limite para Término}: 21/06/2026
+    \item \textbf{Prioridade}: Média.
+    \item \textbf{Descrição}: Descrever o processo de gerenciamento utilizado no projeto.
+\end{itemize}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{../DocsLaTeX/images/quadro_kanban.png}
+    \caption{Quadro Kanban do Projeto}
+\end{figure}
+
+\textit{Nota: Uma lista dos cartões criados e seu status atual deve ser anexada ou descrita em relatórios de progresso periódicos.}
+
+\section{Marcos e Objetivos do Projeto}
+% [Defina e descreva os objetivos de alto nível para as iterações e defina os marcos.]
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|l|l|l|l|}
+        \hline
+        \textbf{Fase / Iteração} & \textbf{Objetivos Principais} & \textbf{Data Início} & \textbf{Data Fim} \\ \hline
+        Planejamento & Definição de requisitos e arquitetura & dd/mm/aaaa & dd/mm/aaaa \\ \hline
+        Desenvolvimento & Construção do protótipo & dd/mm/aaaa & dd/mm/aaaa \\ \hline
+        Testes & Testes de sistema e gravação de vídeo & dd/mm/aaaa & dd/mm/aaaa \\ \hline
+        Entrega & Fechamento de pacote e envio final & dd/mm/aaaa & dd/mm/aaaa \\ \hline
+    \end{tabular}
+    \caption{Cronograma e Marcos do Projeto}
+\end{table}
+
+\section{Implantação}
+% [Esboce a estratégia para implantação do software no ambiente de produção.]
+A estratégia de implantação envolve a configuração do ambiente, instalação de dependências e disponibilização do sistema em um servidor de homologação/produção.
+
+\section{Lições Aprendidas}
+% [Liste as lições aprendidas a partir da retrospectiva, com ênfase em ações de melhoria.]
+(A ser preenchido ao final do projeto)
+\begin{itemize}
+    \item \textbf{O que funcionou bem:} [Descreva]
+    \item \textbf{O que pode ser melhorado:} [Descreva]
+    \item \textbf{Ações futuras:} [Descreva]
+\end{itemize}

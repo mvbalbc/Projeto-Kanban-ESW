@@ -1,0 +1,57 @@
+\section{Introdução}
+Este documento apresenta o projeto físico do banco de dados do sistema, incluindo o diagrama Entidade-Relacionamento e a especificação em texto das tabelas.
+
+\section{Diagrama do Banco de Dados}
+% [Forneça diagrama que identifica tabelas e relacionamentos entre tabelas]
+\begin{figure}[H]
+    \centering
+    % \includegraphics[width=0.8\textwidth]{caminho/para/diagrama_bd.png}
+    \vspace{5cm} % Placeholder se não houver imagem
+    \caption{Diagrama Físico do Banco de Dados.}
+\end{figure}
+
+\section{Dicionário de Dados}
+% [Para cada tabela: informar nome, colunas, chaves, relacionamentos e descrição do propósito]
+
+\subsection{Tabela: Usuario}
+\textbf{Propósito:} Armazenar os dados dos usuários do sistema.
+\begin{itemize}
+    \item \textbf{Colunas:} id\_usuario (INT), nome (VARCHAR), email (VARCHAR), senha (VARCHAR).
+    \item \textbf{Chave Primária (PK):} id\_usuario.
+    \item \textbf{Relacionamentos:} 1:N com Cartao (Responsável), N:N com Quadro (Participante).
+\end{itemize}
+
+\subsection{Tabela: Quadro}
+\textbf{Propósito:} Representar os quadros Kanban do projeto.
+\begin{itemize}
+    \item \textbf{Colunas:} id\_quadro (INT), titulo (VARCHAR), data\_criacao (DATE).
+    \item \textbf{Chave Primária (PK):} id\_quadro.
+    \item \textbf{Relacionamentos:} 1:N com Coluna, 1:N com Raia, N:N com Usuario.
+\end{itemize}
+
+\subsection{Tabela: Coluna}
+\textbf{Propósito:} Representar as colunas de um quadro Kanban (ex: A Fazer, Fazendo, Feito) e seus limites.
+\begin{itemize}
+    \item \textbf{Colunas:} id\_coluna (INT), id\_quadro (INT), nome (VARCHAR), limite\_wip (INT), ordem (INT).
+    \item \textbf{Chave Primária (PK):} id\_coluna.
+    \item \textbf{Chaves Estrangeiras (FK):} id\_quadro referenciando Quadro(id\_quadro).
+    \item \textbf{Relacionamentos:} N:1 com Quadro, 1:N com Cartao.
+\end{itemize}
+
+\subsection{Tabela: Raia}
+\textbf{Propósito:} Representar as subdivisões horizontais de um quadro (swimlanes).
+\begin{itemize}
+    \item \textbf{Colunas:} id\_raia (INT), id\_quadro (INT), nome (VARCHAR), ordem (INT).
+    \item \textbf{Chave Primária (PK):} id\_raia.
+    \item \textbf{Chaves Estrangeiras (FK):} id\_quadro referenciando Quadro(id\_quadro).
+    \item \textbf{Relacionamentos:} N:1 com Quadro, 1:N com Cartao.
+\end{itemize}
+
+\subsection{Tabela: Cartao}
+\textbf{Propósito:} Representar as atividades (tarefas) a serem realizadas.
+\begin{itemize}
+    \item \textbf{Colunas:} id\_cartao (INT), id\_coluna (INT), id\_raia (INT, nullable), id\_responsavel (INT, nullable), titulo (VARCHAR), descricao (TEXT), prioridade (INT), data\_limite (DATE), data\_criacao (DATE), data\_conclusao (DATE, nullable).
+    \item \textbf{Chave Primária (PK):} id\_cartao.
+    \item \textbf{Chaves Estrangeiras (FK):} id\_coluna referenciando Coluna, id\_raia referenciando Raia, id\_responsavel referenciando Usuario.
+    \item \textbf{Relacionamentos:} N:1 com Coluna, N:1 com Raia, N:1 com Usuario.
+\end{itemize}
