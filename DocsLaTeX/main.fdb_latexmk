@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1782063145.20678 "/home/marcus/Documents/2026.1/ES/projeto-kanban-ESW/DocsLaTeX/main.tex" "main.pdf" "main" 1782063146.09097 0
+["pdflatex"] 1782077693.75792 "/home/marcus/Documents/2026.1/ES/projeto-kanban-ESW/DocsLaTeX/main.tex" "main.pdf" "main" 1782077694.59053 0
   "../DocsLaTeX/images/quadro_kanban.png" 1782062376.48747 150813 b7b97059a86f34de9dad8f208de5782f ""
   "../DocsLaTeX/images/quadro_kanban2.png" 1782063029.2463 157526 44c394ccc61ff057525b3a695e769934 ""
   "/etc/texmf/web2c/texmf.cnf" 1777128528.93991 475 c0e671620eb5563b2130f56340a5fde8 ""
@@ -16,6 +16,7 @@
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm2074.tfm" 1136768653 3584 8e2870ec7aa9776f59654942b0923f51 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecrm2488.tfm" 1136768653 3584 406ad7b70d9a41f7833f92b6313150c8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecti1200.tfm" 1136768653 3072 8b5a64dc91775463bc95e2d818524028 ""
+  "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm" 1136768653 1536 487c9b46984a816c7ed238d0674595c7 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1200.tfm" 1136768653 1536 74b7293ec3713bb7fdca8dd1bd1f469c ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi12.tfm" 1136768653 1524 4414a8315f39513458b80dfc63bff03a ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmmi6.tfm" 1136768653 1512 f21f83efb36853c0b70002322c1ab3ad ""
@@ -85,6 +86,7 @@
   "/usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb" 1777128551.95293 136101 f533469f523533d38317ab5729d00c8a ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb" 1777128551.953 131078 d96015a2fa5c350129e933ca070b2484 ""
   "/usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb" 1777128552.03499 198221 ca5aa71411090ef358a6cc78b7458365 ""
+  "/usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb" 1777128552.04499 167085 68de377d2744a68a88fa40a1f610615a ""
   "/usr/share/texmf/web2c/texmf.cnf" 1769369718 41603 27f93b3067076450172040dcd57ca8b3 ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1777128561 5541477 3118940318599480888143717dd32d64 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1777128580 3637547 a88708fdf3dfb36aea2c5bf9d2d2b5c8 ""
@@ -94,12 +96,13 @@
   "04_historias_usuario.tex" 1782061075.6869 4512 77cfedb35bf804eeacf3cf6ec5389756 ""
   "05_arquitetura.tex" 1780437725.16022 3443 24ba852502303f4dca0cd500fe6c15f4 ""
   "06_interface_usuario.tex" 1780437725.93554 2020 0e134fef66723cb7008f25c8b729b40b ""
-  "07_banco_de_dados.tex" 1780437753.81719 2978 c680136c0436c3d7a962536ea8303872 ""
+  "07_banco_de_dados.tex" 1782077692.74676 7438 4f6ec91e9da37a63fba2cb978871392f ""
   "08_infraestrutura.tex" 1780437754.59918 2032 20701bbc4cba0c45fd93ec6d37ec84ba ""
-  "main.aux" 1782063146.00781 12329 24fbf826c467ec276f28948ef49564f8 "pdflatex"
-  "main.out" 1782063146.00881 13097 50fb952ff7eee6e5c4aaf90016eec4a6 "pdflatex"
+  "images/DiagramaBD.jpeg" 1782076493.14141 46092 ff229e8aa898637708fc36f3359deaf7 ""
+  "main.aux" 1782077694.51138 13908 27a5c6ecdeb000a30f42c6e5732169bb "pdflatex"
+  "main.out" 1782077694.51238 13683 9303a6c21e87219f995d77a365170f68 "pdflatex"
   "main.tex" 1782062403.96795 1136 7a54819b0ac6dbc91504c8a2f98d3a54 ""
-  "main.toc" 1782063146.01011 6373 e3beeea4447d852752ad744789e9faef "pdflatex"
+  "main.toc" 1782077694.51338 6665 50b356d99f617e85cf37fa650172ff54 "pdflatex"
   (generated)
   "main.aux"
   "main.log"

@@ -198,6 +198,12 @@ INPUT ./07_banco_de_dados.tex
 INPUT ./07_banco_de_dados.tex
 INPUT ./07_banco_de_dados.tex
 INPUT 07_banco_de_dados.tex
+INPUT ./images/DiagramaBD.jpeg
+INPUT ./images/DiagramaBD.jpeg
+INPUT ./images/DiagramaBD.jpeg
+INPUT ./images/DiagramaBD.jpeg
+INPUT ./images/DiagramaBD.jpeg
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ectt1200.tfm
 INPUT ./08_infraestrutura.tex
 INPUT ./08_infraestrutura.tex
 INPUT ./08_infraestrutura.tex
@@ -214,3 +220,4 @@ INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfbx2488.pfb
 INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb
 INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfrm1440.pfb
 INPUT /usr/share/texmf/fonts/type1/public/cm-super/sfti1200.pfb
+INPUT /usr/share/texmf/fonts/type1/public/cm-super/sftt1200.pfb
