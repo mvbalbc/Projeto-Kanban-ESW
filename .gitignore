@@ -1,0 +1,22 @@
+# Arquivos de compilação do LaTeX
+DocsLaTeX/main.aux
+DocsLaTeX/main.fdb_latexmk
+DocsLaTeX/main.fls
+DocsLaTeX/main.log
+DocsLaTeX/main.out
+DocsLaTeX/main.synctex.gz
+DocsLaTeX/main.toc
+DocsLaTeX/main.pdf
+
+# Arquivos que não devem ser versionados
+Templates/
+ESW-TRABALHO-PRÁTICO_unlocked.pdf
+kanban_github_cards.html
+ProjetoKanban.md
+simulacao_cartoes.md
+The-Official-Kanban-Guide_Portuguese_A4.pdf
+Trabalho-ES-Kanban.md
+
+
+
+
