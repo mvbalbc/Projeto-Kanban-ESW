@@ -162,7 +162,11 @@ INPUT ../DocsLaTeX/images/quadro_kanban.png
 INPUT ../DocsLaTeX/images/quadro_kanban.png
 INPUT ../DocsLaTeX/images/quadro_kanban.png
 INPUT ../DocsLaTeX/images/quadro_kanban.png
-INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecti1200.tfm
+INPUT ../DocsLaTeX/images/quadro_kanban2.png
+INPUT ../DocsLaTeX/images/quadro_kanban2.png
+INPUT ../DocsLaTeX/images/quadro_kanban2.png
+INPUT ../DocsLaTeX/images/quadro_kanban2.png
+INPUT ../DocsLaTeX/images/quadro_kanban2.png
 INPUT ./02_visao_e_escopo.tex
 INPUT ./02_visao_e_escopo.tex
 INPUT ./02_visao_e_escopo.tex
@@ -188,6 +192,7 @@ INPUT ./06_interface_usuario.tex
 INPUT ./06_interface_usuario.tex
 INPUT ./06_interface_usuario.tex
 INPUT 06_interface_usuario.tex
+INPUT /usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/ecti1200.tfm
 INPUT ./07_banco_de_dados.tex
 INPUT ./07_banco_de_dados.tex
 INPUT ./07_banco_de_dados.tex

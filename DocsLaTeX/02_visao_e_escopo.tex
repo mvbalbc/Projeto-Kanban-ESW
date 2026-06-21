@@ -1,40 +1,52 @@
 \section{Introdução}
-\subsection{Posicionamento e Declaração do Problema}
-% [Forneça uma declaração resumindo o problema que está sendo resolvido por este projeto.]
-O problema de \textbf{[descreva o problema]} afeta \textbf{[as partes interessadas afetadas pelo problema]}. O impacto disso é \textbf{[qual é o impacto do problema?]}, e uma solução bem-sucedida seria \textbf{[liste alguns benefícios principais de uma solução bem-sucedida]}.
+Este documento visa estabelecer o limite do projeto, isto é, o seu escopo 
+e, portanto, o que será e o que não será entregue. Este documento servirá como 
+base para o desenvolvimento do projeto e para a tomada de decisões. É um
+contrato entre as partes interessadas e a equipe de desenvolvimento, 
+alinhando as expectativas de negócio com o que será desenvolvido.
+
+\section{Posicionamento e Declaração do Problema}
+O problema de gerenciamento de tarefas afeta em grande parte as equipes
+de trabalho em várias modalidades de negócio o que desencadeia em 
+perda de produtividade, falta de organização, dificuldade em acompanhar o 
+progresso das atividades, entre outros. Houve a necessiade, portanto, de
+criar um método que viabilizasse uma organização e tornasse mais visível
+a quem gerenciava as tarefas o progresso das mesmas. Assim, o método Kanban
+foi criado para sanar esse e outros problemas, sendo uma ferramenta essencial
+para a gestão de projetos.  
 
 \subsection{Declaração de Posição do Produto}
-% [Forneça uma declaração geral resumindo a posição única que o produto pretende ocupar no mercado.]
 \begin{itemize}
-    \item \textbf{Para:} [cliente alvo]
-    \item \textbf{Que:} [declaração da necessidade ou oportunidade]
-    \item \textbf{O (nome do produto):} é uma [categoria do produto]
-    \item \textbf{Que:} [declaração do benefício principal; ou seja, a razão convincente para usar/comprar]
-    \item \textbf{Diferente de:} [principal alternativa competitiva]
-    \item \textbf{Nosso produto:} [declaração da diferenciação principal]
+    \item \textbf{Para:} Equipes que precisam de uma ferramenta de gestão de tarefas que atenda a necessidade de visualizar os trabalhos ditos "invisíveis", e gerenciar o fluxo de trabalho de forma eficiente. 
+    \item \textbf{Quem:} Têm dificuldade em acompanhar, de modo visual, o progresso das atividades.
+    \item \textbf{O SeeBan:} É uma ferramenta de produtividade. 
+    \item \textbf{Que:} Possibilita o máximo de visualização e organização do fluxo de trabalho.
+    \item \textbf{Diferente de:} Ferramentas que não possuem uma interface web intuitiva e pouco flexível.
+    \item \textbf{Nosso produto:} É perfeitamente adaptável a diferentes necessidades e extremamente amigável aos usuários iniciantes e aos curiosos do método kanban.
 \end{itemize}
 
 \section{Descrições das Partes Interessadas (Stakeholders)}
-% [Resuma os tipos de stakeholders e suas responsabilidades]
 \begin{table}[H]
     \centering
     \begin{tabular}{|p{3cm}|p{5cm}|p{6cm}|}
         \hline
         \textbf{Nome} & \textbf{Descrição} & \textbf{Responsabilidades} \\ \hline
-        [Stakeholder 1] & [Descreva brevemente o stakeholder] & [Resuma as principais responsabilidades. Ex: Garante que o sistema atenda ao mercado, aprova financiamento, etc.] \\ \hline
-        [Stakeholder 2] & [Descreva] & [Descreva] \\ \hline
+        Gerentes de Projeto & Gerencia equipes de trabalho e o andamento do projeto & Monitorar a vazão de entrega do time por meio do cálculo de Throughput (Vazão de Entrega) e otimizar processos usando os relatórios gerados pelo sistema. \\ \hline
+        Desenvolvedores & Implementam as funcionalidades do projeto & Garantir que as funcionalidades sejam desenvolvidas de acordo com as especificações técnicas e funcionais do projeto, e dar suporte na implementação das funcionalidades. \\ \hline
+        Usuários & Profissionais que utilizarão o sistema para gerenciar o fluxo de trabalho & Criar, atualizar e mover cartões entre raias (swimlanes) e colunas, respeitando os limites estabelecidos. \\ \hline
+        Clientes & Aqueles que financiam o desenvolvimento do sistema & Garantir que os recursos necessários para o desenvolvimento do projeto sejam disponibilizados. \\ \hline    
+        Administrador do Sistema & Responsável pela sustentação e infraestrutura técnica onde o software está implantado. & Garantir a disponibilidade do servidor, realizar backups do banco de dados e gerenciar contas e autenticação de usuários. \\ \hline    
     \end{tabular}
     \caption{Resumo das Partes Interessadas}
 \end{table}
 
 \section{Ambiente do Usuário}
-% [Detalhe o ambiente de trabalho do usuário alvo. Sugestões: Quantas pessoas? Ciclo da tarefa? Restrições de ambiente (mobile, etc.)? Plataformas em uso? Integração com outros apps?]
 \begin{itemize}
-    \item \textbf{Número de pessoas envolvidas nas tarefas:} [Detalhar]
-    \item \textbf{Ciclo e tempo das atividades:} [Detalhar]
-    \item \textbf{Restrições do ambiente:} [Ex: Mobile, web, offline]
-    \item \textbf{Plataformas do sistema em uso:} [Ex: Windows, Linux, iOS]
-    \item \textbf{Integrações necessárias:} [Ex: Sistema legado, ERP]
+    \item \textbf{Número de pessoas envolvidas nas tarefas:} Número de pessoas varia conforme a necessidade, podendo ser desde uma pessoa até dezenas.
+    \item \textbf{Ciclo e tempo das atividades:} O tempo de execução das atividades varia de acordo com o próprio ambiente de trabalho e prioridade. No geral, as atividades são executadas em ciclos curtos, de no máximo uma semana.
+    \item \textbf{Restrições do ambiente:} O sistema deve ser acessível através de navegadores da web, suportando diferentes tamanhos de tela e dispositivos.
+    \item \textbf{Plataformas do sistema em uso:} Windows, Linux, MacOS e Android.
+    \item \textbf{Integrações necessárias:} Nenhuma integração é necessária.
 \end{itemize}
 
 \section{Visão Geral do Produto}
@@ -45,7 +57,13 @@ O problema de \textbf{[descreva o problema]} afeta \textbf{[as partes interessad
     \begin{tabular}{|p{4cm}|p{2cm}|p{6cm}|p{2cm}|}
         \hline
         \textbf{Necessidade} & \textbf{Prioridade} & \textbf{Recursos (Features)} & \textbf{Lançamento Planejado} \\ \hline
-        [Descreva a necessidade] & [Alta/Média] & [Descreva a funcionalidade que atende à necessidade] & [Versão/Data] \\ \hline
+        Melhorar a visualização do fluxo de trabalho e organização das tarefas. & Alta & Criação e gerenciamento de quadros, colunas e cartões, arrastar e soltar cartões entre colunas, personalização de cores de cartões. & Versão: 1.0 / Data: 21/06/2026 \\ \hline
+        Evitar a sobrecarga de trabalho dos membros da equipe e impedir gargalos operacionais. & Alta & Mecanismo para estabelecer e bloquear a inserção de cartões acima do número máximo estipulado para uma coluna (WIP limit — Limite de Trabalho em Progresso). & Versão: 1.0 / Data: 21/06/2026 \\ \hline
+        Otimizar o fluxo de entrega e facilitar o gerenciamento do projeto. & Alta & Funcionalidades de relatórios e análises (ex: Lead Time, Throughput) para identificar gargalos e melhorar a eficiência. & Versão: 1.0 / Data: 21/06/2026 \\ \hline
+        Segregação e organização visual de diferentes naturezas de trabalho (ex: separar bugs de novas funcionalidades). & Alta & Criação e gerenciamento de raias (swimlanes) customizáveis dentro de um mesmo quadro Kanban. & Versão: 1.0 / Data: 21/06/2026 \\ \hline
+        Garantir a segurança e o acesso controlado ao sistema. & Alta & Implementação de autenticação (login/senha) & Versão: 1.0 / Data: 21/06/2026 \\ \hline
+        Facilitar a adaptação de equipes com diferentes níveis de experiência com o método Kanban. & Baixa & Interface intuitiva, tutoriais de introdução e sugestões automáticas de configuração de quadros baseadas no tipo de equipe. & Versão 2.0 / Data à definir \\ \hline
+        Melhorar a colaboração assíncrona em equipes distribuídas geograficamente. & Baixa & Funcionalidades de comentários em cartões, anexos e histórico de atividades detalhado para consulta posterior. & Versão 2.0 / Data à definir \\ \hline
     \end{tabular}
     \caption{Necessidades e Funcionalidades}
 \end{table}
@@ -57,9 +75,10 @@ O problema de \textbf{[descreva o problema]} afeta \textbf{[as partes interessad
     \begin{tabular}{|p{6cm}|p{2cm}|p{6cm}|}
         \hline
         \textbf{Requisito} & \textbf{Prioridade} & \textbf{Lançamento Planejado} \\ \hline
-        [Ex: Requisitos de usabilidade e performance] & [Alta] & [Versão 1.0] \\ \hline
-        [Ex: Padrões e leis aplicáveis] & [Alta] & [Versão 1.0] \\ \hline
-        [Ex: Requisitos de documentação (manuais)] & [Média] & [Versão 1.0] \\ \hline
+        Restrições de Interface Interoperável: O sistema deve suportar operação via interface gráfica com o usuário (GUI). & Alta & Versão 1.0 \\ \hline
+        Ambiente Operacional e Plataforma: Compatibilidade nativa em Windows, Linux, MacOS e Android. & Alta & Versão 1.0 \\ \hline
+        Requisitos de Conformidade e Padrões: Aderência estrita às regras formais do método Kanban (como a presença obrigatória das colunas "A FAZER", "FAZENDO" e "FEITO"). & Alta & Versão 1.0 \\ \hline
+        Requisitos de Documentação: O projeto deve incluir documentação completa em português, abrangendo manuais de usuário, guias de instalação e tutoriais. & Média & Versão 2.0 \\ \hline
     \end{tabular}
     \caption{Outros Requisitos do Produto}
 \end{table}

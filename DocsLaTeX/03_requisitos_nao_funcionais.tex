@@ -1,69 +1,105 @@
 \section{Introdução}
-Este documento especifica os requisitos não funcionais e outros requisitos de suporte do sistema, não expressos como histórias de usuário ou casos de uso. Ele abrange requisitos funcionais de nível de sistema (como auditoria, relatórios), qualidades do sistema (usabilidade, desempenho), interfaces e restrições.
+Este documento especifica os requisitos não funcionais e outros 
+requisitos de suporte do sistema, não expressos como histórias 
+de usuário ou casos de uso. Ele abrange requisitos funcionais 
+de nível de sistema (como auditoria, relatórios), qualidades 
+do sistema (usabilidade, desempenho), interfaces e restrições.
 
 \section{Requisitos Funcionais de Nível de Sistema}
-% [Declaração de requisitos funcionais que abrangem todo o sistema. Ex: auditoria, autenticação, impressão, relatórios.]
 \begin{itemize}
-    \item \textbf{RNF01 - Autenticação e Autorização:} [O sistema deve garantir acesso seguro por meio de login...]
-    \item \textbf{RNF02 - Relatórios e Métricas:} [O sistema deve prover funcionalidade para exportar relatórios das métricas de cycle time, lead time, throughput e WIP...]
+    \item \textbf{RNF01 - Autenticação e Autorização:} O sistema deve 
+    garantir acesso seguro por meio de login e senha.
+    \item \textbf{RNF02 - Relatórios e Métricas:} O sistema deve prover 
+    funcionalidade para visualizar as métricas de cycle time, lead time, 
+    throughput e WIP.
 \end{itemize}
 
 \section{Qualidades do Sistema (Atributos de Qualidade)}
-% [Representa a classificação URPS no modelo FURPS+]
 \subsection{Usabilidade}
-% [Descreva requisitos para facilidade de uso, aprendizado, padrões, etc.]
 \begin{itemize}
-    \item \textbf{RNF03 - Facilidade de Uso:} [O usuário deve ser capaz de criar e mover cartões de forma intuitiva, preferencialmente via interface de arrastar e soltar (drag and drop).]
+    \item \textbf{RNF03 - Facilidade de Uso:} O usuário deve ser capaz 
+    de criar e mover cartões de forma intuitiva, preferencialmente via 
+    interface de arrastar e soltar (drag and drop).
 \end{itemize}
 
 \subsection{Confiabilidade}
-% [Disponibilidade, tolerância a falhas, recuperabilidade]
 \begin{itemize}
-    \item \textbf{RNF04 - Disponibilidade:} [O sistema deve estar disponível 99\% do tempo útil comercial.]
+    \item \textbf{RNF04 - Disponibilidade:} O sistema deve estar disponível 
+    99\% do tempo útil comercial.
 \end{itemize}
 
 \subsection{Desempenho}
-% [Tempo de resposta, taxa de transferência, capacidade]
 \begin{itemize}
-    \item \textbf{RNF05 - Tempo de Resposta:} [O carregamento do quadro Kanban e o recálculo do WIP devem ocorrer em menos de 2 segundos.]
+    \item \textbf{RNF05 - Tempo de Resposta:} O carregamento do quadro 
+    Kanban e o recálculo do WIP devem ocorrer em menos de 2 segundos.
 \end{itemize}
 
 \subsection{Suportabilidade (Manutenibilidade)}
-% [Adaptabilidade, configurabilidade, facilidade de instalação]
 \begin{itemize}
-    \item \textbf{RNF06 - Configurabilidade:} [O limite de WIP para a coluna "FAZENDO" deve ser facilmente configurável pelo administrador do quadro.]
+    \item \textbf{RNF06 - Configurabilidade:} O limite de WIP para a coluna 
+    \textbf{FAZENDO} deve ser facilmente configurável pelo administrador do quadro.
 \end{itemize}
 
 \section{Interfaces do Sistema}
 \subsection{Interfaces com o Usuário}
-% [Descreva o estilo, layout, consistência e navegação da interface]
 \begin{itemize}
-    \item \textbf{Aspecto Visual (Look \& Feel):} [O sistema deve ter uma interface moderna, clean e responsiva.]
-    \item \textbf{Layout e Navegação:} [O quadro Kanban deve ocupar a maior parte da tela, com as colunas lado a lado.]
+    \item \textbf{Aspecto Visual (Look \& Feel):} O sistema deve ter 
+    uma interface moderna, clean e responsiva.
+    \item \textbf{Layout e Navegação:} O quadro Kanban deve ocupar 
+    a maior parte da tela, com as colunas lado a lado.
 \end{itemize}
 
 \subsection{Interfaces com Sistemas ou Dispositivos Externos}
-% [Software, Hardware ou Interfaces de Comunicação Externas]
 \begin{itemize}
-    \item \textbf{Integrações:} [Descrever se haverá integração com sistemas de e-mail para notificações, etc.]
+    \item \textbf{Integrações:} O sistema não possui integração com 
+    sistemas externos e nem dispositivos externos.
 \end{itemize}
 
 \section{Regras de Negócio}
-% [Regras de negócio que o sistema deve garantir]
 \begin{itemize}
-    \item \textbf{RN01 - Limite WIP:} [Se o número de cartões na coluna FAZENDO for igual ao limite de WIP, o sistema deve impedir a movimentação de um novo cartão para essa coluna, ou emitir um alerta visual.]
+    \item \textbf{RN01 - Bloqueio por Limite WIP:} Se o número de cartões ativos na 
+    coluna \textbf{FAZENDO} for igual ao limite de WIP estabelecido para aquela 
+    raia/coluna, Então o sistema deve impedir a transição de novos cartões 
+    para este estado.
+    \item \textbf{RN02 - Restrição de Exclusão de Quadros:} Se um Quadro Kanban contiver 
+    raias ou cartões vinculados a ele (independentemente da coluna atual), então o 
+    sistema deve impedir a sua exclusão lógica ou física até que todos os 
+    elementos dependentes sejam previamente movidos ou arquivados.
 \end{itemize}
 
 \section{Restrições do Sistema}
-% [Linguagens, ferramentas, componentes de terceiros, restrições de arquitetura]
 \begin{itemize}
-    \item \textbf{Ferramentas e Tecnologias:} [O sistema será desenvolvido em linguagem X, utilizando o framework Y e o banco de dados Z.]
+    \item \textbf{Ferramentas e Tecnologias:} O sistema será desenvolvido em 
+    linguagem Python, utilizando o framework Django e o banco de dados PostgreSQL.
 \end{itemize}
 
 \section{Conformidade do Sistema}
-% [Licenciamento, leis, direitos autorais, padrões aplicáveis (conforme especificado na avaliação)]
 \begin{itemize}
-    \item \textbf{Padrões e Métricas:} [O cálculo de Cycle Time, Lead Time e Throughput deve estar em conformidade com as definições padrão da metodologia Kanban.]
-    \item \textbf{Privacidade e Leis:} [O armazenamento dos dados dos usuários deve observar as normas da LGPD (Lei Geral de Proteção de Dados).]
-    \item \textbf{Documentação:} [O código deve ser documentado e disponibilizado em repositório sob controle de versão.]
+    \item \textbf{Padrões e Métricas:} O cálculo de Cycle Time, Lead Time e 
+    Throughput deve estar em conformidade com as definições padrão da metodologia 
+    Kanban.
+    \item \textbf{Privacidade e Leis:} O armazenamento dos dados dos usuários 
+    deve observar as normas da LGPD (Lei Geral de Proteção de Dados).
+    \item \textbf{Documentação:} O código deve ser documentado e disponibilizado 
+    em repositório sob controle de versão.
+\end{itemize}
+
+\section{Requisitos de Documentação e Suporte}
+\begin{itemize}
+    \item \textbf{Documentação Técnica:} Todo o código-fonte deve ser documentado 
+    utilizando Docstrings e disponibilizado em um repositório Git público com 
+    controle de versão.
+    \item \textbf{Manuais e Ajuda Online:} O sistema deve incluir um arquivo 
+    descritivo estruturado (README.md) detalhando os pré-requisitos, instruções 
+    de instalação do ambiente, execução local e scripts de migração do banco de dados.
+    \item \textbf{Responsabilidade de Artefatos:} Um documento de controle de 
+    contribuição discriminando explicitamente quais artefatos foram construídos por 
+    cada membro da equipe de desenvolvimento deve acompanhar a entrega final.
+\end{itemize}
+
+\section{Licenciamento e Aspectos Legais}
+\begin{itemize}
+    \item \textbf{Modelo de Licença:} O software será distribuído sob a Licença 
+    MIT, permitindo o uso acadêmico e comercial livre, sem garantias implícitas 
+    ou explícitas, retendo os direitos autorais dos desenvolvedores originais.
 \end{itemize}
