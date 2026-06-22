@@ -1,60 +1,173 @@
 \section{Introdução e Propósito}
-Este documento descreve a filosofia, decisões, restrições, justificativas e elementos significativos da arquitetura que moldam o design e a implementação do sistema Kanban.
+Este documento descreve a arquitetura atual do sistema Seeban, com foco nas decisões técnicas adotadas para implementar um software Kanban com autenticação, persistência relacional, interface web e cálculo de métricas operacionais.
+O objetivo é registrar os elementos arquiteturalmente significativos que orientam evolução, manutenção e validação técnica do projeto.
 
 \section{Metas Arquiteturais e Filosofia}
-% [Descreva a filosofia da arquitetura. Identifique questões críticas.]
+A arquitetura foi concebida para atender aos requisitos funcionais de gestão Kanban (projetos, quadros, raias, cartões, movimentação e métricas) com separação clara de responsabilidades.
+Para isso, foi adotado o padrão Model-View-Controller (MVC) combinado com uma camada explícita de repositórios para isolamento da persistência em MySQL.
+
 \begin{itemize}
-    \item \textbf{Objetivos da Arquitetura:} [Ex: Alta disponibilidade, facilidade de manutenção, separação clara entre frontend e backend.]
+    \item \textbf{Objetivos da Arquitetura:}
+    \begin{itemize}
+        \item Separar interface, regras de negócio e acesso a dados;
+        \item Facilitar evolução incremental por funcionalidade;
+        \item Reduzir acoplamento entre front-end (Streamlit) e SQL;
+        \item Melhorar testabilidade de regras em controllers/repositories;
+        \item Garantir consistência de dados em operações transacionais.
+    \end{itemize}
 \end{itemize}
 
 \section{Suposições e Dependências}
-% [Liste as suposições e dependências consideradas na definição da arquitetura.]
 \begin{itemize}
-    \item \textbf{Dependências:} [Ex: Disponibilidade de banco de dados relacional, conexão com a internet constante no lado do cliente.]
+    \item \textbf{Suposições:}
+    \begin{itemize}
+        \item O servidor MySQL está disponível e acessível pela aplicação;
+        \item O schema do banco foi criado a partir do script do projeto;
+        \item O usuário final acessa a aplicação via navegador compatível com Streamlit;
+        \item A equipe opera com fluxo incremental de entrega de funcionalidades.
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Dependências:}
+    \begin{itemize}
+        \item Python 3;
+        \item Streamlit;
+        \item mysql-connector-python;
+        \item Banco de dados MySQL.
+    \end{itemize}
 \end{itemize}
 
 \section{Requisitos Significativos para a Arquitetura}
-% [Faça referência aos requisitos que devem ser implementados para realizar a arquitetura (ex: requisitos não funcionais de desempenho).]
-Os requisitos que impactam diretamente a arquitetura estão descritos no documento de Requisitos Não Funcionais (Capítulo 3), especialmente os requisitos RNF04 (Disponibilidade) e RNF05 (Tempo de Resposta).
+Os requisitos que mais impactam a arquitetura são:
+
+\textbf{Funcionais:}
+\begin{itemize}
+    \item Autenticação de usuário com validação em banco relacional;
+    \item CRUD de projeto, quadro, raia e cartão;
+    \item Movimentação de cartão entre colunas e raias;
+    \item Cálculo de métricas (Cycle Time, Lead Time, Throughput, WIP);
+    \item Compartilhamento de projeto por convite de integrantes.
+\end{itemize}
+
+\textbf{Não funcionais:}
+\begin{itemize}
+    \item Usabilidade: navegação orientada por páginas e menu lateral;
+    \item Disponibilidade: operação contínua em arquitetura web simples;
+    \item Tempo de resposta: consultas e atualizações diretas em SQL com escopo reduzido;
+    \item Manutenibilidade: organização modular por camadas.
+\end{itemize}
 
 \section{Decisões, Restrições e Justificativas}
-% [Decisões feitas sobre a abordagem arquitetural e restrições impostas aos desenvolvedores.]
 \begin{table}[H]
     \centering
     \begin{tabular}{|p{5cm}|p{9cm}|}
         \hline
         \textbf{Decisão/Restrição} & \textbf{Justificativa} \\ \hline
-        [Ex: Uso de Arquitetura de Microserviços ou Monolítica] & [Justificar a escolha baseada na escala do projeto e familiaridade da equipe.] \\ \hline
-        [Ex: Uso de Framework X no Frontend] & [Justificar a agilidade no desenvolvimento e a comunidade ativa.] \\ \hline
+        Python como linguagem principal & Aderência à equipe, produtividade e ecossistema maduro para web e dados. \\ \hline
+        Streamlit para interface web & Entrega rápida de UI interativa, adequada ao escopo do sistema. \\ \hline
+        MySQL como persistência relacional & Integridade referencial, modelagem estruturada e suporte a transações. \\ \hline
+        Padrão MVC com camada Repository & Separação de responsabilidades e redução de acoplamento entre UI e SQL. \\ \hline
+        SQL explícito nos repositórios & Controle fino das consultas e operações críticas de negócio. \\ \hline
+        Arquitetura monolítica modular (sem microsserviços) & Escopo atual não justifica complexidade operacional de serviços distribuídos. \\ \hline
+        Controle de um diálogo por vez na UI & Mitigação de conflitos de renderização do Streamlit e previsibilidade de fluxo. \\ \hline
     \end{tabular}
     \caption{Decisões Arquiteturais}
 \end{table}
 
 \section{Mecanismos e Abstrações Arquiteturais}
-% [Liste os mecanismos e principais abstrações do sistema.]
 \begin{itemize}
-    \item \textbf{Mecanismo de Persistência:} [Como os dados serão persistidos. Ex: ORM via Entity Framework/Hibernate.]
-    \item \textbf{Abstrações Chave:} [Quadro, Coluna, Raia, Cartão, Usuário.]
+    \item \textbf{Mecanismo de Persistência:} MySQL com mysql-connector-python, conexão centralizada em \texttt{database/connection.py} e operações encapsuladas em repositories.
+    \item \textbf{Mecanismo de Autenticação:} validação de credenciais via \texttt{auth\_controller} e \texttt{user\_repository} consultando a tabela \texttt{usuarios}.
+    \item \textbf{Mecanismo de Interface Gráfica:} páginas Streamlit (\texttt{login\_page}, \texttt{project\_page}, \texttt{board\_page}) e navegação por estado de sessão.
+    \item \textbf{Mecanismo de Regras de Negócio:} controllers para orquestrar validações, transições de estado e mensagens de domínio.
+    \item \textbf{Mecanismo de Manipulação Kanban:} criação automática de colunas padrão (\texttt{A\_FAZER}, \texttt{FAZENDO}, \texttt{FEITO}), raia principal, CRUD de cartões/raias e movimentação com histórico.
+    \item \textbf{Abstrações Chave:} Usuário, Projeto, Quadro, Coluna, Raia, Cartão, Histórico de Movimentação.
 \end{itemize}
 
-\section{Camadas ou Framework Arquitetural}
-% [Descreva o padrão arquitetural que será utilizado, informando elementos e relacionamentos.]
-O sistema adota o padrão [Ex: MVC (Model-View-Controller) / Client-Server]. 
+\section{Framework Arquitetural}
+O sistema adota o padrão Model-View-Controller (MVC) com apoio da camada Repository:
+
 \begin{itemize}
-    \item \textbf{Elementos:} [Descreva os principais componentes e como eles se relacionam.]
-    \item \textbf{Impacto de Ferramentas (Frameworks e Bibliotecas):} [Descreva como as bibliotecas escolhidas impactam a arquitetura. Por exemplo, o uso de um template de UI específico afeta a estrutura do frontend, limitando a customização, mas acelerando a entrega.]
+    \item \textbf{View:} responsável por renderizar páginas e componentes de interação no Streamlit;
+    \item \textbf{Controller:} centraliza regras de negócio, validações e coordenação de casos de uso;
+    \item \textbf{Model:} representa entidades do domínio em classes simples;
+    \item \textbf{Repository:} implementa acesso a dados e transações SQL.
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Elementos:}
+    \begin{itemize}
+        \item \texttt{views/login\_page.py}: autenticação e cadastro;
+        \item \texttt{views/project\_page.py}: gestão de projetos;
+        \item \texttt{views/board\_page.py}: gestão de quadros, raias, cards e métricas;
+        \item \texttt{controllers/*}: lógica de autenticação, projetos, quadros, raias e cards;
+        \item \texttt{repositories/*}: CRUD e consultas SQL por entidade;
+        \item \texttt{models/*}: mapeamento das entidades de domínio;
+        \item \texttt{database/connection.py}: pool e configuração de conexão.
+    \end{itemize}
+    \item \textbf{Impacto de Ferramentas (Frameworks e Bibliotecas):}
+    \begin{itemize}
+        \item Streamlit acelera construção de interface e prototipação;
+        \item MySQL garante consistência relacional para operações de Kanban;
+        \item mysql-connector-python permite integração direta com SQL e transações.
+    \end{itemize}
 \end{itemize}
 
 \section{Visões da Arquitetura}
-% [Descreva as visões utilizadas para documentar a arquitetura.]
 \subsection{Visão Lógica}
-% [Descreve a estrutura (pacotes, classes) das porções significativas do sistema.]
-(Insira aqui diagramas de classes ou de componentes principais e explique o relacionamento entre eles).
+A visão lógica está organizada por pacotes:
+
+\begin{verbatim}
+seeban/
+|-- app.py
+|-- views/
+|   |-- login_page.py
+|   |-- project_page.py
+|   `-- board_page.py
+|-- controllers/
+|   |-- auth_controller.py
+|   |-- project_controller.py
+|   |-- board_controller.py
+|   |-- lane_controller.py
+|   `-- card_controller.py
+|-- models/
+|   |-- user.py
+|   |-- project.py
+|   |-- board.py
+|   |-- lane.py
+|   |-- column.py
+|   |-- card.py
+|   `-- movement_history.py
+|-- repositories/
+|   |-- user_repository.py
+|   |-- project_repository.py
+|   |-- board_repository.py
+|   |-- lane_repository.py
+|   `-- card_repository.py
+`-- database/
+    `-- connection.py
+\end{verbatim}
+
+Fluxo típico: \texttt{View} recebe evento $\rightarrow$ \texttt{Controller} aplica regra $\rightarrow$ \texttt{Repository} persiste/consulta no MySQL $\rightarrow$ resultado retorna para a \texttt{View}.
 
 \subsection{Visão Operacional (Implantação)}
-% [Descreve os nós físicos e processos.]
-(Ver Capítulo 8: Infraestrutura de Implantação).
+Implantação simplificada em três blocos:
+\begin{itemize}
+    \item Processo da aplicação Streamlit (camada web + regra de negócio);
+    \item Banco MySQL (persistência relacional);
+    \item Cliente web (navegador do usuário).
+\end{itemize}
+O estado de navegação e sessão do usuário é mantido via \texttt{st.session\_state} no processo da aplicação.
 
 \subsection{Visão de Casos de Uso (Histórias)}
-% [Casos de uso com requisitos arquiteturais significativos.]
-(Ver Capítulo 4: Histórias de Usuário).
+Casos de uso arquiteturalmente relevantes já implementados:
+\begin{itemize}
+    \item Autenticar e cadastrar usuário;
+    \item Criar, alterar, excluir e listar projetos;
+    \item Convidar usuário para projeto;
+    \item Criar, alterar, excluir e listar quadros do projeto;
+    \item Criar, atualizar, excluir e ler raias;
+    \item Criar, atualizar, excluir, ler e mover cartões;
+    \item Calcular e exibir métricas de fluxo (Cycle Time, Lead Time, Throughput e WIP).
+\end{itemize}
