@@ -1,7 +1,7 @@
 \section{Introdução}
 Este documento descreve a infraestrutura necessária contemplando os requisitos de hardware, software e serviços exigidos para que o sistema Kanban seja posto em produção.
 
-\section{Hardware}
+\section{Requisitos mínimos - Hardware}
 % [Hardware necessario à implantação do sistema]
 \begin{itemize}
     \item \textbf{Servidor de Aplicação:} 
@@ -12,28 +12,39 @@ Este documento descreve a infraestrutura necessária contemplando os requisitos 
     \end{itemize}
     \item \textbf{Servidor de Banco de Dados:} 
     \begin{itemize}
-        \item (Se hospedado separadamente) Processador: 2 vCPUs.
+        \item Processador: 2 vCPUs.
         \item Memória RAM: 4 GB.
         \item Armazenamento: 50 GB.
     \end{itemize}
-    \item \textbf{Cliente (Usuário Final):} Computador ou dispositivo móvel capaz de executar navegadores web modernos (Chrome, Firefox, Safari, Edge).
+    \item \textbf{Cliente (Usuário Final) - Computador}
+    \begin{itemize}
+        \item Processador: Pentium 4 ou superior compatível com SSE3.
+        \item Armazenamento: 350 MB.
+        \item Memória RAM: 4GB.
+    \end{itemize}
+    \item \textbf{Cliente (Usuário Final) - Dispositivos móveis}
+    \begin{itemize}
+        \item Armazenamento: 32 GB no Android ou 200 MB de espaço livre no iOS.
+        \item Memória RAM: 4GB.
+    \end{itemize}
 \end{itemize}
 
-\section{Software}
+\section{Requisitos mínimos - Software}
 % [Software necessario à implantação do sistema]
 \begin{itemize}
-    \item \textbf{Sistema Operacional do Servidor:} Linux (ex: Ubuntu Server 22.04 LTS).
-    \item \textbf{Ambiente de Execução (Backend):} [Ex: Node.js, Python, Java, ou PHP - definir conforme a equipe].
-    \item \textbf{Servidor Web/Proxy Reverso:} Nginx ou Apache.
-    \item \textbf{Banco de Dados:} [Ex: PostgreSQL, MySQL].
-    \item \textbf{Software Cliente:} Navegador web moderno atualizado.
+    \item \textbf{Sistema Operacional do Servidor:} Windows 7 ou superior, Linux (ex: Ubuntu Server 22.04 LTS).
+    \item \textbf{Ambiente de Execução (Backend):} Python 3.11 ou superior.
+    \item \textbf{Banco de Dados:}  MySQL com MySQL Workbench.
+    \item \textbf{Cliente - Windows:} Windows 10 ou superior / Windows Server 2016 ou superior.
+    \item \textbf{Cliente - Linux:} Ubuntu 18.04+ de 64 bits, Debian 10+, openSUSE 15.5+ ou Fedora Linux 39+.
+    \item \textbf{Cliente - Mac:} macOS 12 Monterey e versões mais recentes.
+    \item \textbf{Cliente - Android:} Android 10 ou superior.
+    \item \textbf{Cliente - iOS:} iOS 17 ou superior.
 \end{itemize}
 
-\section{Serviços}
+\section{Serviços necessários à implantação do sistema em produção}
 % [Serviços necessarios à implantação do sistema]
 \begin{itemize}
-    \item \textbf{Hospedagem em Nuvem (Cloud Hosting):} [Ex: Heroku, AWS, Azure, ou provedor VPS como DigitalOcean] para hospedar a aplicação e o banco de dados.
-    \item \textbf{Registro de Domínio:} Serviço de DNS para roteamento (ex: Cloudflare ou Route 53).
-    \item \textbf{Certificado SSL:} Let's Encrypt para prover segurança na comunicação via HTTPS.
-    \item \textbf{Sistema de Controle de Versão (CI/CD):} GitHub Actions ou GitLab CI para integração e implantação contínuas.
+    \item \textbf{Hospedagem da Aplicação em Nuvem (Cloud Hosting):} Streamlit Community Cloud para hospedagem gratuita da ferramenta.
+    \item \textbf{Hospedagem do BD em Nuvem:} Google Cloud SQL Database, para hospedar a base MySQL, por exemplo.
 \end{itemize}
